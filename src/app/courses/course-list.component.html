@@ -1,6 +1,15 @@
 <!--Exibindo uma lista no templete do Angular com *ngFor-->
 
 <h2>Course List</h2>
+
+<!--Inserindo classes do BootStrap -->
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Name:</label>    
+    <div class="col-sm-10">
+        <input [(ngModel)]="filter" class="form-control">
+</div>
+
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -14,7 +23,7 @@
          </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let course of courses">
+        <tr *ngFor="let course of filteredCourses"> <!--Filtrando a pesguisa em linha-->
             <td><img [src]="course.imageUrl" width="40" height="40"></td> <!--Chamando as imagens de assets, para  mesclar o atributo d variável HTML  com  alguma variável / componente Angular, devemos deixar o atribito html (neste caso src entre os conchetes = [src])-->
             <td>{{course.name }}</td>
             <td>{{course.price }}</td>
